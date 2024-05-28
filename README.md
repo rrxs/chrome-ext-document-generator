@@ -13,7 +13,7 @@
 run the command
 
 ```shell
-$ cd monkey-ext
+$ cd chrome-ext-document-generator
 
 $ npm run dev
 ```
