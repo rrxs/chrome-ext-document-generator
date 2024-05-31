@@ -1,9 +1,9 @@
 {
-  "name": "monkey-ext",
-  "displayName": "monkey-ext",
-  "version": "0.0.0",
-  "author": "Monkey Exchange",
-  "description": "",
+  "name": "chrome-ext-document-generator",
+  "displayName": "Document Generator",
+  "version": "0.0.1",
+  "author": "Robson Xavier",
+  "description": "Generate valid documents",
   "type": "module",
   "license": "MIT",
   "keywords": [
