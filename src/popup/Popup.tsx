@@ -15,11 +15,15 @@ export const Popup = () => {
   const [result, setResult] = useState('')
   const [listSaved, setListSaved] = useState<string[]>([])
 
+  function saveClipboard(item: string) {
+    navigator.clipboard.writeText(item).then(() => {
+      // success
+    })
+  }
+
   useEffect(() => {
     if (result) {
-      navigator.clipboard.writeText(result).then(() => {
-        // success
-      })
+      saveClipboard(result)
       saveGenerated(result)
     }
     async function handleStorage() {
@@ -88,7 +92,12 @@ export const Popup = () => {
         <h3>Últimos documentos gerados</h3>
         <div className="last-generated">
           <ol reversed>
-            {listSaved && listSaved.map((item) => <li key="item">{item}</li>)}
+            {listSaved &&
+              listSaved.map((item) => (
+                <li key="item" onClick={() => saveClipboard(item)}>
+                  {item}
+                </li>
+              ))}
             {!listSaved && <li>Nenhum documento gerado ainda...</li>}
           </ol>
         </div>
