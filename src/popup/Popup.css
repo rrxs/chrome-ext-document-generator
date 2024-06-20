@@ -4,6 +4,11 @@
   }
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   text-align: center;
   padding: 0.5em;
@@ -45,4 +50,8 @@ button:hover {
 .result input {
   text-align: center;
   margin: 1rem 0;
+}
+
+.last-generated {
+  text-align: left;
 }
