@@ -54,4 +54,22 @@ button:hover {
 
 .last-generated {
   text-align: left;
+  margin: 1rem;
+}
+
+ol {
+  margin: 0;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.small {
+  padding: 0.3rem;
+  font-size: 13px;
 }

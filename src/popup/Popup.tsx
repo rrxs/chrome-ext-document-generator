@@ -9,11 +9,17 @@ import {
   generateRFC_PF,
   saveGenerated,
   getListGenerated,
+  clear,
 } from '../core'
 
 export const Popup = () => {
   const [result, setResult] = useState('')
   const [listSaved, setListSaved] = useState<string[]>([])
+
+  function clearStorage() {
+    clear()
+    setListSaved([])
+  }
 
   function saveClipboard(item: string) {
     navigator.clipboard.writeText(item).then(() => {
@@ -89,7 +95,12 @@ export const Popup = () => {
         </div>
       </div>
       <div>
-        <h3>Últimos documentos gerados</h3>
+        <div className="history-header">
+          <h3>Últimos documentos gerados</h3>
+          <button className="small" onClick={clearStorage}>
+            Limpar
+          </button>
+        </div>
         <div className="last-generated">
           <ol reversed>
             {listSaved &&
@@ -98,8 +109,8 @@ export const Popup = () => {
                   {item}
                 </li>
               ))}
-            {!listSaved && <li>Nenhum documento gerado ainda...</li>}
           </ol>
+          {listSaved.length === 0 && <div>Não há nada aqui...</div>}
         </div>
       </div>
     </main>
