@@ -48,7 +48,16 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     chrome.scripting.executeScript({
       target: { tabId: tab!.id! },
       func: (item) => {
-        ;(document!.activeElement as HTMLInputElement).value = item
+        const inputEl = document.activeElement
+        if (inputEl && inputEl instanceof HTMLInputElement) {
+          inputEl.value = item
+          inputEl.dispatchEvent(
+            new Event('input', {
+              bubbles: true,
+              cancelable: true,
+            }),
+          )
+        }
       },
       args: [info.menuItemId.toString()],
     })
