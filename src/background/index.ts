@@ -32,14 +32,12 @@ chrome.storage.local.onChanged.addListener((changes) => {
   let list = []
   if (changes && changes.documentList?.newValue) {
     list = JSON.parse(changes.documentList.newValue)
-    console.log(list)
   }
   generateContextMenu(list)
 })
 
 chrome.runtime.onInstalled.addListener(async () => {
   const list = await getListGenerated()
-  console.log(list)
   generateContextMenu(list)
 })
 

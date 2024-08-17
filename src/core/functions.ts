@@ -23,3 +23,19 @@ export async function saveGenerated(document: string): Promise<void> {
 export function clear(): void {
   chrome.storage.local.clear()
 }
+
+export function showNotification(msg: string) {
+  const body = document.querySelector('body')
+  console.log(msg)
+  console.log(body)
+  if (!body) return
+
+  const element = document.createElement('div')
+  element.classList.add('notification')
+  element.appendChild(document.createTextNode(msg))
+  body.prepend(element)
+
+  setTimeout(() => {
+    element.remove()
+  }, 1_000)
+}

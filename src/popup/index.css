@@ -26,3 +26,13 @@ body {
   min-width: 20rem;
   margin: 0;
 }
+
+.notification {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: #2e7d32;
+  color: #fff;
+  padding: 8px;
+}

@@ -10,6 +10,7 @@ import {
   saveGenerated,
   getListGenerated,
   clear,
+  showNotification,
 } from '../core'
 
 export const Popup = () => {
@@ -22,13 +23,16 @@ export const Popup = () => {
   }
 
   function saveClipboard(item: string) {
+    console.log('call1')
     navigator.clipboard.writeText(item).then(() => {
-      // success
+      console.log('call2')
+      showNotification('Copiado com sucesso!')
     })
   }
 
   useEffect(() => {
     if (result) {
+      console.log('call0')
       saveClipboard(result)
       saveGenerated(result)
     }
